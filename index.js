@@ -4,8 +4,9 @@ var http = require('http'),
  
 var app = express();
 app.set('port', process.env.PORT || 3000); 
-app.set('views', path.join(__dirname, 'views')); //sets where jade lives
+app.set('views', path.join(__dirname, 'views')); //sets where the view templates live
 app.set('view engine', 'jade'); //sets jade as the templating engine
+
 app.use(express.static(path.join(__dirname, 'public')));  //static files from express
  
 app.get('/', function (req, res) {
