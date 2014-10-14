@@ -10,8 +10,8 @@ app.get('/', function (req, res) {
   res.send('<html><body><h1>Hello World</h1></body></html>');
 });
 
-app.use(function (req,res) { //1
-    res.render('404', {url:req.url}); //2
+app.use(function (req,res) {
+    res.render('404', {url:req.url});
 });
  
 http.createServer(app).listen(app.get('port'), function(){
