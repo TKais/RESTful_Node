@@ -70,4 +70,29 @@ http.createServer(app).listen(app.get('port'), function(){
 // 3: with nothing to do, node idles for a bit as it waits for readFile to finish. If there was anything else to do during this time, node would be available for work.
 // 4: readFile finishes and calls its callback, doneReading, which then in turn increments the number and then immediately invokes the function that addOne passed in (its callback), logMyNumber.
 
+//processFile depends on readFile finishing, and that's what callbacks are for. 
+//CAN BE WRITTEN LIKE:
+//var fs = require('fs')
+// fs.readFile('movie.mp4', finishedReading)
+
+// function finishedReading(error, movieData) {
+//   if (error) return console.error(error)
+//   // do something with the movieData
+// }
+//OR
+// var fs = require('fs')
+
+// function finishedReading(error, movieData) {
+//   if (error) return console.error(error)
+//   // do something with the movieData
+// }
+
+// fs.readFile('movie.mp4', finishedReading)
+//OR
+// var fs = require('fs')
+
+// fs.readFile('movie.mp4', function finishedReading(error, movieData) {
+//   if (error) return console.error(error)
+//   // do something with the movieData
+// })
 
