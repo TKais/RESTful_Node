@@ -1,6 +1,9 @@
 var http = require('http'),        //library for creation of the server
     express = require('express');  //library for the express framework, which is what sinatra/rails is to Ruby
     path = require('path');
+    MongoClient = require('mongodb').MongoClient,  //includes the MongoClient object from the MongoDB module
+    Server = require('mongodb').Server,   //includes the Server object from the MongoDB module
+    CollectionDriver = require('./collectionDriver').CollectionDriver;  //includes newly-created collectionDriver
  
 var app = express();    //variable to hold express package
 app.set('port', process.env.PORT || 3000);   //sets the port to 3000
@@ -23,9 +26,17 @@ http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));   //actually creates the server
 });
 
+
+//ALTERNATIVE WAY TO CREATE THE SERVER
 // http.createServer(function (req, res) {
 //   res.writeHead(200, {'Content-Type': 'text/html'});
 //   res.end('<html><body><h1>Hello World</h1></body></html>');
 // }).listen(3000);
  
 // console.log('Server running on port 3000.');
+
+
+//TYPE THIS INTO TERMINAL TO ALLOW MONGODB DRIVER TO PROVIDE DATABASE CONNECTIVITY
+//cd /usr/local/opt/mongodb/ 
+//mongod
+
