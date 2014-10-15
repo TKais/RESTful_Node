@@ -1,4 +1,4 @@
-var ObjectID = require('mongodb').ObjectID;  //imports the various required packages (objectID function from the MongoDB package)
+var ObjectID = require('mongodb').ObjectID;  //imports the various required packages (objectID function from the MongoDB package).  If you’re familiar with traditional databases, you probably understand the term “primary key”. MongoDB has a similar concept: by default, new entities are assigned a unique _id field of datatype ObjectID that MongoDB uses for optimized lookup and insertion. Since ObjectID is a BSON type and not a JSON type, you’ll have to convert any incoming strings to ObjectIDs if they’re to be used when comparing against an “_id” field.
 CollectionDriver = function(db) {   //
   this.db = db;
 };
