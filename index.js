@@ -11,6 +11,23 @@ app.set('views', path.join(__dirname, 'views')); //sets where the view templates
 app.set('view engine', 'jade'); //sets jade as the templating engine
 
 //do all sets first before 'use'; everything works in order
+var mongoHost = 'localHost'; //A
+var mongoPort = 27017; 
+var collectionDriver;
+ 
+var mongoClient = new MongoClient(new Server(mongoHost, mongoPort)); //B
+mongoClient.open(function(err, mongoClient) { //C
+  if (!mongoClient) {
+      console.error("Error! Exiting... Must start MongoDB first");
+      process.exit(1); //D
+  }
+  var db = mongoClient.db("MyDatabase");  //E
+  collectionDriver = new CollectionDriver(db); //F
+});
+
+// Line A above assumes the MongoDB instance is running locally on the default port of 27017. If you ever run a MongoDB server elsewhere you’ll have to modify these values, but leave them as-is for this tutorial.
+// Line B creates a new MongoClient and the call to open in line C attempts to establish a connection. If your connection attempt fails, it is most likely because you haven’t yet started your MongoDB server. In the absence of a connection the app exits at line D.
+// If the client does connect, it opens the MyDatabase database at line E. A MongoDB instance can contain multiple databases, all which have unique namespaces and unique data. Finally, you create the CollectionDriver object in line F and pass in a handle to the MongoDB client.
 
 app.use(express.static(path.join(__dirname, 'public')));  //static files from express
  
