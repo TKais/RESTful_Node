@@ -113,3 +113,5 @@ http.createServer(app).listen(app.get('port'), function(){
 //   // do something with the movieData
 // })
 
+
+//callback functions are closures
