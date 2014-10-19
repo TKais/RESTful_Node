@@ -129,4 +129,11 @@ http.createServer(app).listen(app.get('port'), function(){
 // On an unsuccessful response, the ‘err’ argument is set. Call the callback with an actual error object. The error should describe what happened and include enough information to tell the callback what went wrong. Data can still be returned in the other arguments as well, but generally the error is passed alone.
 // Example: callback( new Error('Bad Request') );
 
-// That’s it! Easy, right?
+//EXAMPLE OF ERROR-FIRST CALLBACK
+// fs.readFile('/foo.txt', function(err, data) {
+//   if (err) {
+//       console.log('Ahh! An Error!');
+//       return;
+//   }
+//   console.log(data);
+// });
