@@ -115,3 +115,18 @@ http.createServer(app).listen(app.get('port'), function(){
 
 
 //callback functions are closures
+//Defining an Error-First Callback
+
+// There’s really only one rule for using an error-first callback:
+
+// The first argument of the callback is always reserved for an error object. The following arguments will contain any other data that should be returned to the callback. There is almost always just one object following ‘err’, but you can use multiple arguments if truely needed.
+// Example: function(err, data)
+// When it’s time to call an error-first callback, there are two scenarios you’ll need to handle:
+
+// On a successful response, the ‘err’ argument is null. Call the callback and include the successful data only.
+// Example: callback(null, returnData);
+
+// On an unsuccessful response, the ‘err’ argument is set. Call the callback with an actual error object. The error should describe what happened and include enough information to tell the callback what went wrong. Data can still be returned in the other arguments as well, but generally the error is passed alone.
+// Example: callback( new Error('Bad Request') );
+
+// That’s it! Easy, right?
