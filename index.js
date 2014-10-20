@@ -10,7 +10,7 @@ app.set('port', process.env.PORT || 3000);   //sets the port to 3000
 app.set('views', path.join(__dirname, 'views')); //sets where the view templates live
 app.set('view engine', 'jade'); //sets jade as the templating engine
 
-//do all sets first before 'use'; everything works in order
+//do all 'sets' first before 'use'; everything works in order
 var mongoHost = 'localHost'; //A
 var mongoPort = 27017; 
 var collectionDriver;
@@ -32,7 +32,7 @@ mongoClient.open(function(err, mongoClient) { //C
 app.use(express.static(path.join(__dirname, 'public')));  //static files from express
  
 app.get('/', function (req, res) {
-  res.send('<html><body><h1>Hello World</h1></body></html>'); //routing for the index page
+  res.send('<html><body><h1>Hello World</h1></body></html>'); //routing for the index page. No request necessary since you're just appending text to a page.
 });
 
 app.use(function (req,res) {
@@ -42,6 +42,37 @@ app.use(function (req,res) {
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));   //actually creates the server
 });
+
+//THIS IS HOW YOU PULL DATA FROM MONGODB AND CREATE ROUTES-------------------------------------------
+// app.get('/:collection', function(req, res) { //A
+//    var params = req.params; //B
+//    collectionDriver.findAll(req.params.collection, function(error, objs) { //C
+//         if (error) { res.send(400, error); } //D
+//         else { 
+//             if (req.accepts('html')) { //E
+//                 res.render('data',{objects: objs, collection: req.params.collection}); //F
+//               } else {
+//             res.set('Content-Type','application/json'); //G
+//                   res.send(200, objs); //H
+//               }
+//          }
+//     });
+// });
+ 
+// app.get('/:collection/:entity', function(req, res) { //I
+//    var params = req.params;
+//    var entity = params.entity;
+//    var collection = params.collection;
+//    if (entity) {
+//        collectionDriver.get(collection, entity, function(error, objs) { //J
+//           if (error) { res.send(400, error); }
+//           else { res.send(200, objs); } //K
+//        });
+//    } else {
+//       res.send(400, {error: 'bad url', url: req.url});
+//    }
+// });
+//-----------------------------------------------------------------------------------------------------
 
 
 //ALTERNATIVE WAY TO CREATE THE SERVER
