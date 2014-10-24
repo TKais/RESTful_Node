@@ -90,7 +90,8 @@ http.createServer(app).listen(app.get('port'), function(){
 // In the case where a two-level URL path is specified, line I treats this as the collection name and entity _id. You then request the specific entity using the get() collectionDriver‘s method in line J. If that entity is found, you return it as a JSON document at line K.
 
 
-
+// Save your work, restart your Node instance, check that your mongod daemon is still running and point your browser at http://localhost:3000/items;
+// You'll see items on the page
 
 
 
