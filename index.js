@@ -217,4 +217,8 @@ http.createServer(app).listen(app.get('port'), function(){
 // });
 // --You will almost always want to follow the error callback convention, since most Node.js users will expect your project to follow them. The general idea is that the callback is the last parameter. The callback gets called after the function is done with all of its operations. Traditionally, the first parameter of the callback is the error value. If the function hits an error, then they typically call the callback with the first parameter being an Error object. If it cleanly exits, then they will call the callback with the first parameter being null and the rest being the return value(s)
 
-// --Callbacks are functions that use another function as a parameter so that it doesn't wait around for an actual return; it keeps doing other things
+// --Callbacks are functions that use another function as a parameter so that it doesn't wait around for an actual return; it keeps doing other things.
+// OWN EXAMPLE
+// So a function reads a csv and must return every instance of the word "the". It uses fs to read the file (the csv being the first argument in the function) and it has a second parameter, which is the callback function. The callback typically takes two arguments -- error, and whatever the successful return is. 
+// Reading the csv can take awhile, so it will run through continuously until the csv is read, while still doing other tasks if it needs to. When the csv is read, it will call the callback and return either an error or the successful return.
+// This is asynchronous, and allows JS to go do other things while that csv is read. The callback is only called when the csv is fully read. 
