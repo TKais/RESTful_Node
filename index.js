@@ -203,3 +203,16 @@ http.createServer(app).listen(app.get('port'), function(){
 // --Functions are essentially mappings between input and output
 // --Rather than wait around for a function to finish by returning a value, we can use callbacks to do it asynchronously. This is useful for things that take a while to finish, like making an AJAX request, because we aren’t holding up the browser
 // --Node.js, being an asynchronous platform, doesn't wait around for things like file I/O to finish - Node.js uses callbacks
+// --function asyncOperation ( a, b, c, callback ) {
+//   // ... lots of hard work ...
+//   if ( /* an error occurs */ ) {
+//     return callback(new Error("An error has occured"));
+//   }
+//   // ... more work ...
+//   callback(null, d, e, f);
+// }
+
+// asyncOperation ( params.., function ( err, returnValues.. ) {
+//    //This code gets run after the async operation gets run
+// });
+// --You will almost always want to follow the error callback convention, since most Node.js users will expect your project to follow them. The general idea is that the callback is the last parameter. The callback gets called after the function is done with all of its operations. Traditionally, the first parameter of the callback is the error value. If the function hits an error, then they typically call the callback with the first parameter being an Error object. If it cleanly exits, then they will call the callback with the first parameter being null and the rest being the return value(s).
