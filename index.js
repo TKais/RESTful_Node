@@ -200,4 +200,6 @@ http.createServer(app).listen(app.get('port'), function(){
 // --Functions in JavaScript are actually objects (Function objects)
 // --The distinction between code and data is sometimes blurred
 // --One benefit of this function-as-object concept is that you can pass code to another function in the same way you would pass a regular variable or object (because the code is literally just an object)
-// --
+// --Functions are essentially mappings between input and output
+// --Rather than wait around for a function to finish by returning a value, we can use callbacks to do it asynchronously. This is useful for things that take a while to finish, like making an AJAX request, because we aren’t holding up the browser
+// --Node.js, being an asynchronous platform, doesn't wait around for things like file I/O to finish - Node.js uses callbacks
