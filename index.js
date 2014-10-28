@@ -196,3 +196,8 @@ http.createServer(app).listen(app.get('port'), function(){
 //   }
 //   console.log(data);
 // });
+
+// --Functions in JavaScript are actually objects (Function objects)
+// --The distinction between code and data is sometimes blurred
+// --One benefit of this function-as-object concept is that you can pass code to another function in the same way you would pass a regular variable or object (because the code is literally just an object)
+// --
