@@ -25,7 +25,7 @@ mongoClient.open(function(err, mongoClient) { //C
   collectionDriver = new CollectionDriver(db); //F
 });
 
-// Line A above assumes the MongoDB instance is running locally on the default port of 27017. If you ever run a MongoDB server elsewhere you’ll have to modify these values, but leave them as-is for this tutorial.
+// Line A above assumes the MongoDB instance is running locally on the default port of 27017. If you ever run a MongoDB server elsewhere you’ll have to modify these values, but leave them as-is.
 // Line B creates a new MongoClient and the call to open in line C attempts to establish a connection. If your connection attempt fails, it is most likely because you haven’t yet started your MongoDB server. In the absence of a connection the app exits at line D.
 // If the client does connect, it opens the MyDatabase database at line E. A MongoDB instance can contain multiple databases, all which have unique namespaces and unique data. Finally, you create the CollectionDriver object in line F and pass in a handle to the MongoDB client.
 
@@ -40,7 +40,7 @@ app.use(function (req,res) {
 });
  
 http.createServer(app).listen(app.get('port'), function(){
-  console.log('Express server listening on port ' + app.get('port'));   //actually creates the server
+  console.log('Express server listening on port ' + app.get('port'));   //actually creates the server and assigns a port
 });
 
 
