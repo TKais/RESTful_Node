@@ -1,4 +1,4 @@
-var http = require('http'),        //library for creation of the server
+var http = require('http'),        //library for creation of the language that communicates with the server
     express = require('express');  //library for the express framework, which is what sinatra/rails is to Ruby
     path = require('path');
     MongoClient = require('mongodb').MongoClient,  //includes the MongoClient object from the MongoDB module
