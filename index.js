@@ -36,7 +36,7 @@ app.get('/', function (req, res) {
 });
 
 app.use(function (req,res) {
-    res.render('404', {url:req.url});  //a catch-all 404 if no content is returned. app.use means it applies to all pages
+    res.render('404', {url:req.url});  //a catch-all 404 if no content is returned. app.use means it applies to all pages. Need this for the header
 });
  
 http.createServer(app).listen(app.get('port'), function(){
