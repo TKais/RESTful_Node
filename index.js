@@ -224,6 +224,34 @@ http.createServer(app).listen(app.get('port'), function(){
 //so if it doesn't error out, it will call the callback within the function, which is to return all the "the's" and maybe make them green or red when appended to the page.
 // This is asynchronous, and allows JS to go do other things while that csv is read. The callback is only called when the csv is fully read. 
 
+
+
+// Callbacks are essential for understanding how to program efficiently with Node.js. Callbacks are essentially just functions that execute once a method completes. It’s considered standard to create callbacks with at least two parameters: the global Error object, and the result of the asynchronous method completing.
+
+// // You call async functions like this.
+// someAsyncFunction(param1, param2, function callback(err, result) {
+//     if (err) {
+//         console.log("There's an error, and it reads: " + err);
+//     }
+//     else {
+//         doSomething(result);
+//     }
+// });
+ 
+// //Or, You call async functions like this.
+// // Do not put and arguments in the following callback, it won't work!!! If you have to, you can refer to the previous someAsyncFunction.
+ 
+// someAsyncFunction(param1, param2, myCallback);
+// function myCallback(err, result){
+//     if (err) {
+//         console.log("There's an error, and it reads: " + err);
+//     }
+//     else {
+//         doSomething(result);
+//     }
+// };
+// ------------------------------------------------------------------------------------
+
 //VOCABULARY
 //non-blocking vs blocking = refers to when code either can or cant execute something because it's stuck on something else
 
