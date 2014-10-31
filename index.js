@@ -227,3 +227,26 @@ http.createServer(app).listen(app.get('port'), function(){
 //VOCABULARY
 //non-blocking vs blocking = refers to when code either can or cant execute something because it's stuck on something else
 
+
+//BASIC ASYNCHRONOUS EXAMPLE
+// var http = require('http');
+// var fileSystem = require('fs');
+
+// http.createServer(function (request, response) {
+//     response.writeHead(200, {'Content-Type': 'text/plain'});
+
+//     var read_stream = fileSystem.createReadStream('myfile.txt');
+//     read_stream.on('data', writeCallback);
+//     read_stream.on('close', closeCallback);
+
+//     function writeCallback(data){
+//         response.write(data);
+//     }
+
+//     function closeCallback(){
+//         response.end();
+//     }
+
+// }).listen(8080);
+
+// console.log('Server started');
