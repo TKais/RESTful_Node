@@ -223,3 +223,7 @@ http.createServer(app).listen(app.get('port'), function(){
 // Reading the csv can take awhile, so it will run through continuously until the csv is read, while still doing other tasks if it needs to. When the csv is read, it will call the callback and return either an error or the successful return.
 //so if it doesn't error out, it will call the callback within the function, which is to return all the "the's" and maybe make them green or red when appended to the page.
 // This is asynchronous, and allows JS to go do other things while that csv is read. The callback is only called when the csv is fully read. 
+
+//VOCABULARY
+//non-blocking vs blocking = refers to when code either can or cant execute something because it's stuck on something else
+
