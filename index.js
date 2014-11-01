@@ -278,3 +278,11 @@ http.createServer(app).listen(app.get('port'), function(){
 // }).listen(8080);
 
 // console.log('Server started');
+
+
+//BEST BEST BEST BEST BEST BEST BEST BEST BEST BEST BEST!!!
+//MORE ON ASYNCHRONOUS
+// It's not about a one-function scope; when you have a function with a callback, that function will run its long process (reading a csv for example) and return to that function later when it's done. It could go execute other functions based on other requests. When the csv is read, that callback is called and the data is received. That's it; function over. 
+// //Also, just use callbacks when you are doing I/O (input/output) and you are guaranteed that your code is never interrupted and that doing I/O will not block other requests without having to incur the costs of thread/process per request (e.g. memory overhead in Apache).
+
+// Having asynchronous I/O is good, because I/O is more expensive than most code and we should be doing something better than just waiting for I/O.
