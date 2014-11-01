@@ -288,3 +288,7 @@ http.createServer(app).listen(app.get('port'), function(){
 // //Also, just use callbacks when you are doing I/O (input/output) and you are guaranteed that your code is never interrupted and that doing I/O will not block other requests without having to incur the costs of thread/process per request (e.g. memory overhead in Apache).
 
 // Having asynchronous I/O is good, because I/O is more expensive than most code and we should be doing something better than just waiting for I/O.
+
+
+//EVENT LOOP NOTES
+//An event loop is "an entity that handles and processes external events and converts them into callback invocations". So I/O calls are the points at which Node.js can switch from one request to another. At an I/O call, your code saves the callback and returns control to the node.js runtime environment. The callback will be called later when the data actually is available.
