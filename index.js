@@ -292,3 +292,5 @@ http.createServer(app).listen(app.get('port'), function(){
 
 //EVENT LOOP NOTES
 //An event loop is "an entity that handles and processes external events and converts them into callback invocations". So I/O calls are the points at which Node.js can switch from one request to another. At an I/O call, your code saves the callback and returns control to the node.js runtime environment. The callback will be called later when the data actually is available.
+
+//The event loop is triggered by an event (ie, a mouse click on a button). If a callback is involved, it'll be added to a message queue and returned to when the time-consuming action is finished. Everything is parallel except your code, and that's because it's impossible with a single thread. The event loop is a single thread constantly running through your code once an event is triggered and runs until the last callback is called (and events are done being triggered). 
